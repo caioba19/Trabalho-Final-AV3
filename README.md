@@ -1,119 +1,185 @@
-# Trabalho B2 – Chamadas de Emergência
+# Trabalho Final – Estruturas de Dados 2026.1
 
-Implementação de uma **pilha dinâmica encadeada (LIFO)** em linguagem C, simulando um sistema de registro e atendimento de chamadas de emergência.
-
-Trabalho prático da disciplina **Estruturas de Dados** – 2026.1  
-Linguagem: C (padrão C99)  
-Repositório do professor: [NirtonAfonso/Trabalho-Estruturas-de-Dados-2026](https://github.com/NirtonAfonso/Trabalho-Estruturas-de-Dados-2026)
-
----
-
-## Sobre o Tema
-
-Neste sistema, cada chamada registrada é empilhada no topo. A última chamada registrada será a primeira a ser atendida, respeitando o comportamento **LIFO** (*Last In, First Out*).
+Repositório do grupo para entrega do trabalho final da disciplina **Estruturas de Dados**.  
+Curso: Sistemas de Análise e Desenvolvimento – UniJorge  
+Professor: Nirton Afonso  
+Referência: [Repositório do Professor](https://github.com/NirtonAfonso/Trabalho-Estruturas-de-Dados-2026)
 
 ---
 
-## Estrutura de Dados
+## Integrantes
 
-Cada chamada armazena os seguintes campos:
-
-| Campo       | Tipo       | Descrição                    |
-|-------------|------------|------------------------------|
-| `protocolo` | `int`      | Identificador único          |
-| `local`     | `char[50]` | Local da emergência          |
-| `tipo`      | `char[30]` | Tipo da ocorrência           |
-| `horario`   | `char[20]` | Horário da chamada (HH:MM)   |
-
-A pilha é composta por nós alocados dinamicamente com `malloc` e liberados com `free`. Nenhum vetor estático é utilizado.
+| Nome | Turma |
+|------|-------|
+| Caio Vinicius | ADS 2026.1 |
+| Daniel Oliveira | ADS 2026.1 |
+| João Pedro Gonzaga | ADS 2026.1 |
+| Maicon Dias | ADS 2026.1 |
+| Yuri Sales | ADS 2026.1 |
 
 ---
 
-## Funcionalidades
+## Temas Escolhidos
 
-| Opção | Operação     | Descrição                                          |
-|-------|--------------|----------------------------------------------------|
-| 1     | Push         | Registra nova chamada no topo da pilha             |
-| 2     | Pop          | Atende e remove a chamada do topo                  |
-| 3     | Peek         | Consulta a próxima chamada sem remover             |
-| 4     | Listar       | Exibe todas as chamadas do topo até a base         |
-| 5     | Salvar CSV   | Grava os dados atuais em `chamadas.csv`            |
-| 6     | Carregar CSV | Recarrega os dados do arquivo para a pilha         |
-| 0     | Sair         | Salva automaticamente e encerra o programa         |
+| Trabalho | Tema |
+|----------|------|
+| A – Listas Encadeadas Dinâmicas | **A1 – Playlist de Músicas** |
+| B – Pilhas Dinâmicas (LIFO) | **B2 – Chamadas de Emergência** |
+| C – Filas Dinâmicas e Circulares | **C2 – Fila de Impressão** |
 
 ---
 
-## Como Compilar e Executar
+## Organização do Repositório
 
-### Pré-requisito
+```
+/
+├── README.md
+├── Trabalho_A/
+│   ├── trabalho_a.c
+│   └── dados_a.csv
+├── Trabalho_B/
+│   ├── trabalho_b.c
+│   └── dados_b.csv
+└── Trabalho_C/
+    ├── trabalho_c.c
+    └── dados_c.csv
+```
 
-Ter o GCC instalado. Para verificar:
+---
+
+## Trabalho A – Playlist de Músicas (Lista Encadeada)
+
+### Descrição
+
+Sistema de gerenciamento de uma playlist musical usando **lista simplesmente encadeada dinâmica**. Cada música é um nó criado com `malloc`. A lista respeita a ordem de cadastro.
+
+Campos de cada música: `ID`, `título`, `artista`, `duração (MM:SS)`, `gênero`.
+
+### Funcionalidades
+
+| Opção | Descrição |
+|-------|-----------|
+| 1 | Cadastrar música |
+| 2 | Buscar por ID |
+| 3 | Editar música (ID não pode ser alterado) |
+| 4 | Remover música |
+| 5 | Listar todas |
+| 6 | Salvar CSV (`dados_a.csv`) |
+| 7 | Carregar CSV |
+| 0 | Sair (salva automaticamente) |
+
+### Como compilar e executar
 
 ```bash
-gcc --version
+cd Trabalho_A
+gcc -o playlist trabalho_a.c -std=c99
+./playlist
 ```
 
-Caso não tenha, instale via:
+> No Windows: `playlist.exe`
 
-- **Linux/Ubuntu:** `sudo apt install gcc`
-- **Windows:** instale o [MinGW](https://www.mingw-w64.org/) ou use o CodeBlocks
+---
 
-### Compilar
+## Trabalho B – Chamadas de Emergência (Pilha LIFO)
+
+### Descrição
+
+Sistema de registro e atendimento de chamadas de emergência usando **pilha dinâmica encadeada (LIFO)**. A última chamada registrada é a primeira a ser atendida.
+
+Campos de cada chamada: `protocolo`, `local`, `tipo da ocorrência`, `horário`.
+
+### Funcionalidades
+
+| Opção | Descrição |
+|-------|-----------|
+| 1 | Registrar chamada (Push) |
+| 2 | Atender chamada (Pop) |
+| 3 | Consultar próxima chamada (Peek) |
+| 4 | Listar todas (topo → base) |
+| 5 | Salvar CSV (`dados_b.csv`) |
+| 6 | Carregar CSV |
+| 0 | Sair (salva automaticamente) |
+
+### Como compilar e executar
 
 ```bash
-gcc -o pilha_emergencia pilha_emergencia.c -std=c99
+cd Trabalho_B
+gcc -o emergencia trabalho_b.c -std=c99
+./emergencia
 ```
 
-### Executar
+> No Windows: `emergencia.exe`
+
+---
+
+## Trabalho C – Fila de Impressão (Fila Normal + Circular)
+
+### Descrição
+
+Sistema de gerenciamento de fila de impressão com dois tipos de trabalho:
+
+- **Fila Normal** – lista encadeada simples (FIFO)
+- **Fila Prioritária** – fila circular encadeada (FIFO, mas sempre processada antes da normal)
+
+Se houver trabalho prioritário, ele é processado primeiro. Caso contrário, o próximo trabalho normal é processado.
+
+Campos de cada trabalho: `ID`, `nome do arquivo`, `quantidade de páginas`, `tipo (N/P)`.
+
+### Funcionalidades
+
+| Opção | Descrição |
+|-------|-----------|
+| 1 | Adicionar trabalho (N ou P) |
+| 2 | Processar próximo |
+| 3 | Buscar por ID |
+| 4 | Listar todos |
+| 5 | Cancelar trabalho |
+| 6 | Salvar CSV (`dados_c.csv`) |
+| 7 | Carregar CSV |
+| 0 | Sair (salva automaticamente) |
+
+### Como compilar e executar
 
 ```bash
-./pilha_emergencia
+cd Trabalho_C
+gcc -o impressao trabalho_c.c -std=c99
+./impressao
 ```
 
-> No Windows, use `pilha_emergencia.exe`
+> No Windows: `impressao.exe`
 
 ---
 
-## Persistência de Dados
+## Requisitos Técnicos Atendidos
 
-O programa salva e carrega automaticamente o arquivo `chamadas.csv`, criado na mesma pasta do executável.
-
-Formato do arquivo:
-
-```
-protocolo;local;tipo;horario
-1001;Av. Paulista;Acidente;14:30
-1002;Rua das Flores;Incendio;14:35
-```
-
-Ao iniciar, o programa tenta carregar o CSV automaticamente. Ao sair (opção 0), os dados são salvos automaticamente.
-
----
-
-## Exemplo de Uso
-
-```
-Registrar protocolo 1001 → Push
-Registrar protocolo 1002 → Push
-Consultar topo           → Peek  → exibe 1002
-Atender                  → Pop   → remove 1002
-Atender                  → Pop   → remove 1001
-Atender                  → Pop   → pilha vazia
-```
+- [x] Código em linguagem C
+- [x] Uso de `struct`
+- [x] Uso de ponteiros
+- [x] Alocação dinâmica com `malloc`
+- [x] Liberação de memória com `free`
+- [x] Menu interativo com opções numéricas
+- [x] Cadastro/inserção de registros
+- [x] Busca/consulta
+- [x] Listagem dos dados
+- [x] Remoção de registros
+- [x] Validação de entradas
+- [x] Tratamento de estrutura vazia
+- [x] Salvamento em arquivo CSV
+- [x] Carregamento de arquivo CSV
+- [x] Nenhum vetor substituindo estruturas dinâmicas
 
 ---
 
-## Validações Implementadas
+## Observações sobre o Funcionamento
 
-- Protocolo duplicado é rejeitado
-- Protocolo deve ser um número positivo
-- Campos vazios (local, tipo, horário) são rejeitados
-- Pop e Peek avisam quando a pilha está vazia
-- Toda memória alocada é liberada antes de encerrar
+- Todos os programas carregam o CSV automaticamente ao iniciar
+- Ao sair (opção 0), os dados são salvos automaticamente
+- IDs/protocolos duplicados são rejeitados com mensagem de erro
+- Campos vazios são validados antes de inserir
 
 ---
 
-## Autores
+## Dificuldades Encontradas
 
-**Caio Vinicius , Daniel oliveira , João Pedro Gonzaga, Maicon Dias e Yuri Sales**  
-Sistemas de Análise e Desenvolvimento – UniJorge  
+- Implementação da fila circular encadeada no Trabalho C exigiu atenção especial com o ponteiro do último nó apontando para o primeiro, especialmente nos casos de inserção e remoção com apenas um elemento na fila.
+- Garantir a liberação correta de toda a memória alocada ao encerrar os programas.
