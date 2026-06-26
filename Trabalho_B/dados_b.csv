@@ -1,2 +1,6 @@
 protocolo;local;tipo;horario
-1001;Av. Paulista;Acidente;14:30
+1001;Av. Paulista 500;Acidente de transito;08:15
+1002;Rua das Flores 120;Incendio residencial;09:30
+1003;Praca da Se;Pessoa inconsciente;10:45
+1004;Av. Brasil 900;Assalto em andamento;11:20
+1005;Rua Sete de Setembro;Vazamento de gas;12:05
