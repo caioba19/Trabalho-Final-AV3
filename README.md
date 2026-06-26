@@ -16,6 +16,7 @@ Referência: [Repositório do Professor](https://github.com/NirtonAfonso/Trabalh
 | João Pedro Gonzaga | ADS 2026.1 |
 | Maicon Dias | ADS 2026.1 |
 | Yuri Sales | ADS 2026.1 |
+| Kauan Marinho| ADS 2026.1 |
 
 ---
 
