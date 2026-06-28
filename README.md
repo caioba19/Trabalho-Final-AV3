@@ -53,10 +53,7 @@ Trabalho_Final_Estruturas_Dados/
 ├── Trabalho_C/
 │   ├── trabalho_c.c        (versão obrigatória – vetor)
 │   └── dados_c.csv
-└── Extra_Versao_Dinamica/  (pontuação extra – lista/pilha/fila encadeadas)
-    ├── Trabalho_A/
-    ├── Trabalho_B/
-    └── Trabalho_C/
+
 ```
 
 ---
